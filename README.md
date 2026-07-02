@@ -1,5 +1,9 @@
 # House-Price-Prediction
 
+### Live Demo
+
+Visit the deployed app here: [https://house-price-prediction-zi57.vercel.app/](https://house-price-prediction-zi57.vercel.app/)
+
 
 
 ### Software and Tools Requirements
@@ -43,6 +47,7 @@ python app.py
 2. Import the repository into Vercel.
 3. Make sure Vercel sees `requirements.txt` at the repo root.
 4. Deploy the project. Vercel can load the Flask `app` object from [app.py](app.py).
+5. Share the live app at [https://house-price-prediction-zi57.vercel.app/](https://house-price-prediction-zi57.vercel.app/).
 
 ### Notes
 
