@@ -1,8 +1,9 @@
 import pickle
 import warnings
+from pathlib import Path
+
 from flask import Flask, request, jsonify, render_template
 import numpy as np
-import pandas as pd
 
 try:
     from sklearn.exceptions import InconsistentVersionWarning
@@ -11,9 +12,15 @@ except Exception:
     pass
 
 app = Flask(__name__)
-## Load the model
-regmodel=pickle.load(open('regmodel.pkl','rb'))
-scalar=pickle.load(open('scaler.pkl','rb'))
+
+BASE_DIR = Path(__file__).resolve().parent
+
+# Load the model from the module directory so deployment does not depend on cwd.
+with open(BASE_DIR / "regmodel.pkl", "rb") as regmodel_file:
+    regmodel = pickle.load(regmodel_file)
+
+with open(BASE_DIR / "scaler.pkl", "rb") as scaler_file:
+    scalar = pickle.load(scaler_file)
 
 @app.route('/')
 def home():
