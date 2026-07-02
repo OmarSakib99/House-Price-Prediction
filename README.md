@@ -12,7 +12,7 @@
 
 Create a new environment
 
-```python
+```python 
 conda create -p venv python=3.9 -y
 
 ```
