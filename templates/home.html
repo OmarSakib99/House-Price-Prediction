@@ -1,47 +1,94 @@
-<html >
+<html>
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ML API</title>
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-
-  
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300,600' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
- <div class="login">
-	<h1>Boston House Price Prediction</h1>
 
-     <!-- Main Input For Receiving Query to our ML -->
-    <form action="{{ url_for('predict') }}" method="post">
-      <input type="text" name="CRIM" placeholder="CRIM" required="required" /><br>
-    	<input type="text" name="ZN" placeholder="ZN" required="required" /><br>
-        <input type="text" name="INDUS" placeholder="INDUS" required="required" /><br>
-        <input type="text" name="CHAS" placeholder="CHAS" required="required" /><br>
-        <input type="text" name="NOX" placeholder="NOX" required="required" /><br>
-        <input type="text" name="RM" placeholder="RM" required="required" /><br>
-        <input type="text" name="Age" placeholder="Age" required="required" /><br>
-        <input type="text" name="DIS" placeholder="DIS" required="required" /><br>
-        <input type="text" name="RAD" placeholder="RAD" required="required" /><br>
-        <input type="text" name="TAX" placeholder="TAX" required="required" /><br>
-        <input type="text" name="PTRATIO" placeholder="PTRATIO" required="required" /><br>
-        <input type="text" name="B" placeholder="B" required="required" /><br>
-        <input type="text" name="LSTAT" placeholder="LSTAT" required="required" /><br>
+  <header>
+    <h1>Boston House Price Prediction</h1>
+    <p>Enter the neighborhood features below to estimate a median home value.</p>
+  </header>
 
-       
+  <main>
+    <div class="login">
+      <!-- Main Input For Receiving Query to our ML -->
+      <form action="{{ url_for('predict') }}" method="post">
+        <div class="form-grid">
+          <div class="field">
+            <label for="CRIM">CRIM</label>
+            <input type="text" id="CRIM" name="CRIM" placeholder="CRIM" required="required" />
+          </div>
+          <div class="field">
+            <label for="ZN">ZN</label>
+            <input type="text" id="ZN" name="ZN" placeholder="ZN" required="required" />
+          </div>
+          <div class="field">
+            <label for="INDUS">INDUS</label>
+            <input type="text" id="INDUS" name="INDUS" placeholder="INDUS" required="required" />
+          </div>
+          <div class="field">
+            <label for="CHAS">CHAS</label>
+            <input type="text" id="CHAS" name="CHAS" placeholder="CHAS" required="required" />
+          </div>
+          <div class="field">
+            <label for="NOX">NOX</label>
+            <input type="text" id="NOX" name="NOX" placeholder="NOX" required="required" />
+          </div>
+          <div class="field">
+            <label for="RM">RM</label>
+            <input type="text" id="RM" name="RM" placeholder="RM" required="required" />
+          </div>
+          <div class="field">
+            <label for="Age">Age</label>
+            <input type="text" id="Age" name="Age" placeholder="Age" required="required" />
+          </div>
+          <div class="field">
+            <label for="DIS">DIS</label>
+            <input type="text" id="DIS" name="DIS" placeholder="DIS" required="required" />
+          </div>
+          <div class="field">
+            <label for="RAD">RAD</label>
+            <input type="text" id="RAD" name="RAD" placeholder="RAD" required="required" />
+          </div>
+          <div class="field">
+            <label for="TAX">TAX</label>
+            <input type="text" id="TAX" name="TAX" placeholder="TAX" required="required" />
+          </div>
+          <div class="field">
+            <label for="PTRATIO">PTRATIO</label>
+            <input type="text" id="PTRATIO" name="PTRATIO" placeholder="PTRATIO" required="required" />
+          </div>
+          <div class="field">
+            <label for="B">B</label>
+            <input type="text" id="B" name="B" placeholder="B" required="required" />
+          </div>
+          <div class="field">
+            <label for="LSTAT">LSTAT</label>
+            <input type="text" id="LSTAT" name="LSTAT" placeholder="LSTAT" required="required" />
+          </div>
+        </div>
 
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
-    </form>
+        <button type="submit" class="btn-predict">Predict</button>
+      </form>
 
-   <br>
-   <br>
-  
-   
- </div>
- {{prediction_text}}
+      {% if prediction_text %}
+      <div class="prediction-result">{{ prediction_text }}</div>
+      {% endif %}
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Boston House Price Prediction &middot; Powered by scikit-learn &amp; Flask</p>
+  </footer>
 
 </body>
 </html>

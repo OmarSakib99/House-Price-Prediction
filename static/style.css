@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Arimo', Arial, sans-serif;
+  background: linear-gradient(135deg, #1f4037, #99f2c8);
+  color: #222;
+}
+
+header {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  color: #fff;
+}
+
+header h1 {
+  margin: 0;
+  font-family: 'Pacifico', cursive;
+  font-weight: 400;
+  font-size: 2.2rem;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+header p {
+  margin: 0.4rem 0 0;
+  font-family: 'Hind', sans-serif;
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.login {
+  width: 100%;
+  max-width: 480px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem 2.25rem 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.9rem 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.field label {
+  font-family: 'Hind', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 0.3rem;
+}
+
+.field input {
+  padding: 0.55rem 0.7rem;
+  border: 1px solid #d5d9dd;
+  border-radius: 6px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: #1f4037;
+  box-shadow: 0 0 0 3px rgba(31, 64, 55, 0.15);
+}
+
+.btn-predict {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  background: #1f4037;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.btn-predict:hover {
+  background: #163027;
+}
+
+.btn-predict:active {
+  transform: translateY(1px);
+}
+
+.prediction-result {
+  margin-top: 1.5rem;
+  padding: 0.9rem 1rem;
+  border-radius: 8px;
+  background: #eafaf1;
+  border: 1px solid #b7e4c7;
+  color: #1f4037;
+  font-weight: 600;
+  text-align: center;
+}
+
+footer {
+  padding: 1.25rem 1rem;
+  text-align: center;
+  color: #fff;
+  font-family: 'Hind', sans-serif;
+  font-weight: 300;
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
