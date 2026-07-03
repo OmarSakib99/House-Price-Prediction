@@ -49,7 +49,7 @@ This repository is a Flask app that predicts Boston house prices using a saved s
 - The live deployed app is available at [https://house-price-prediction-zi57.vercel.app/](https://house-price-prediction-zi57.vercel.app/).
 - `builds` in vercel.json overrides Project Settings (Framework Preset/Build Command are ignored while it's present) — expected, do not "clean this up" by removing it in favor of zero-config again without re-verifying with `vercel build --debug` first.
 - The Python builder installs from [pyproject.toml](pyproject.toml)'s `[project.dependencies]` (via `uv`), not `requirements.txt`, when both exist — keep the two in sync; `requirements.txt` is still what local dev uses via `pip install -r requirements.txt`.
-- There is no Dockerfile or custom build script; keep it that way unless a real need for a custom build step comes up.
+
 
 ## Editing Guidelines
 
